@@ -60,6 +60,10 @@ V2ray/Xray多用户管理脚本，向导式管理[新增|删除|修改]传输协
   - VLESS_XTLS
   - Trojan
 
+## Oracle-安装Curl命令
+```
+ apt-get update -y && apt-get install curl -y
+```
 ## 安装命令
 ```
 source <(curl -sL https://multi.netlify.app/v2ray.sh) --zh
@@ -74,7 +78,52 @@ source <(curl -sL https://multi.netlify.app/v2ray.sh) -k
 ```
 source <(curl -sL https://multi.netlify.app/v2ray.sh) --remove
 ```
+## bbr命令
+```
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"
+chmod +x tcp.sh
+./tcp.sh
+```
+## 证书失败操作命令
+```
+一、oracle甲骨文云必要操作
+进入ROOT模式：sudo -i
 
+1：安装相关依赖
+centos系统下
+yum update -y                                                                                                
+apt-get update -y && apt-get install curl -y
+
+ubuntu系统下
+apt update -y
+apt-get update -y && apt-get install curl -y
+
+2：删除、关闭、打开各自系统的无用附件、防火墙、端口及规则
+注意Centos系统下：
+删除多余附件
+systemctl stop oracle-cloud-agent
+systemctl disable oracle-cloud-agent
+systemctl stop oracle-cloud-agent-updater
+systemctl disable oracle-cloud-agent-updater
+
+停止firewall
+systemctl stop firewalld.service
+禁止firewall开机启动
+systemctl disable firewalld.service
+
+注意Ubuntu系统下：
+开放所有端口
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -F
+
+Ubuntu镜像默认设置了Iptable规则，关闭它
+apt-get purge netfilter-persistent
+reboot
+或者强制删除
+rm -rf /etc/iptables && reboot
+```
 ## 命令行参数
 ```bash
 v2ray/xray [-h|help] [options]
