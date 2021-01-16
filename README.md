@@ -124,6 +124,10 @@ reboot
 或者强制删除
 rm -rf /etc/iptables && reboot
 ```
+## 手动更新 ECC 证书命令
+```
+$ sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force --ecc
+```
 ## 命令行参数
 ```bash
 v2ray/xray [-h|help] [options]
