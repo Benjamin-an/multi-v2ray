@@ -88,6 +88,10 @@ chmod +x tcp.sh
 ```
 bash <(curl -L -s https://multi.netlify.app/go.sh) --remove >/dev/null
 ```
+## 卸载xray脚本命令
+```
+bash <(curl -L -s https://multi.netlify.app/go.sh) --remove -x >/dev/null
+```
 ## 证书失败操作命令
 ```
 一、oracle甲骨文云必要操作
@@ -130,7 +134,7 @@ rm -rf /etc/iptables && reboot
 ```
 ## 手动更新 ECC 证书命令
 ```
-$ sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force --ecc
+sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force --ecc
 ```
 ## 命令行参数
 ```bash
