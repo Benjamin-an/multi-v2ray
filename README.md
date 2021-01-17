@@ -84,6 +84,10 @@ wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-
 chmod +x tcp.sh
 ./tcp.sh
 ```
+## 卸载v2ray脚本命令
+```
+bash <(curl -L -s https://multi.netlify.app/go.sh) --remove >/dev/null
+```
 ## 证书失败操作命令
 ```
 一、oracle甲骨文云必要操作
