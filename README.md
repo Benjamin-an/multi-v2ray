@@ -136,6 +136,33 @@ rm -rf /etc/iptables && reboot
 ```
 sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force --ecc
 ```
+## Euserv安装
+```
+一、VPS设置IPV4访问
+因为德国小鸡是纯IPV6地址的，为了能访问Github下载文件所以要设置VPS能访问IPV4地址
+
+  echo -e "nameserver 2001:67c:2b0::4•\nnameserver 2001:67c:2b0::6" > /etc/resolv.conf
+二、基本插件安装
+1、安装基本插件和curl
+
+  apt-get update -y && apt-get install curl -y
+三、证书安装
+Euserv最难的就是获取证书，大部分脚本也是在这里错误，我们先运行下面的命令，自动安装时候证书错误再运行一次这个命令，重新安装自动安装xray命令就可以了
+
+ bash /root/.acme.sh/acme.sh --issue -d 域名 --debug --standalone --keylength ec-256 --listen-v6
+如果还有错误尝试一下下面的命令
+
+ yum install socat #通过80端口生成证书的依赖 #centos7系统
+ yum install netcat #centos7系统
+ ​
+ apt-get install openssl cron socat curl   #debian系统
+ apt-get -y install netcat   #debian系统
+ ​
+ 安装成功后执行 source ~/.bashrc 以确保脚本所设置的命令别名生效
+四、一键安装代码
+ bash <(curl -sL https://s.hijk.art/xray.sh)
+Cloudflare的CDN，目前只能使用websocket协议，XTLS不支持websocket协议
+```
 ## 命令行参数
 ```bash
 v2ray/xray [-h|help] [options]
