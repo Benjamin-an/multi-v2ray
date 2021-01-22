@@ -132,10 +132,6 @@ reboot
 或者强制删除
 rm -rf /etc/iptables && reboot
 ```
-## 手动更新 ECC 证书命令
-```
-sudo ~/.acme.sh/acme.sh --renew -d mydomain.com --force --ecc
-```
 ## Euserv安装
 ```
 一、VPS设置IPV4访问
